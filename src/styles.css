@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.custom-button {
+  background-color: red; /* Cor de fundo azul */
+  color: white; /* Cor do texto branca */
+  border: none; /* Remover borda */
+  padding: 10px 20px; /* Espaçamento interno */
+  font-size: 16px; /* Tamanho da fonte */
+  cursor: pointer; /* Cursor do mouse */
+  border-radius: 4px; /* Borda arredondada */
+}
+
+  
