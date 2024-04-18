@@ -1,0 +1,25 @@
+.lista-tarefas-container {
+    text-align: center;
+    padding: 50px;
+  }
+  
+  .lista-tarefas-container ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .lista-tarefas-container li {
+    margin-bottom: 10px;
+  }
+  .container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+  }
+  
+  .container > * {
+    max-width: 800px;
+    width: 100%;
+  }  

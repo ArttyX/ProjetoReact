@@ -1,21 +1,20 @@
-interface CustomInputProps {
-    initialValue: string;
-    type: string;
-    placeholder: string;
-  }
-  
-  const CustomInput: React.FC<CustomInputProps> = ({ initialValue, type, placeholder }) => {
+import styles from './index.module.css'
+
+interface Props {
+    defaultValue: string
+    type: 'text' | 'email' | 'number'
+    placeHolder: string
+}
+
+function InputFatec({defaultValue, type, placeHolder}: Props) {
     return (
-      <input
-        type={type}
-        placeholder={placeholder}
-        defaultValue={initialValue}
-        style={{ color: 'red' }}
-      />
-    );
-  };
-  
-  export default CustomInput;
-  
-  
-  
+        <input 
+        className={styles.inputFatec}
+        type={type} 
+        placeholder={placeHolder}
+        defaultValue={defaultValue}
+        />
+    )
+}
+
+export default InputFatec
