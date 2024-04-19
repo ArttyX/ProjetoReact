@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom"
 import ButtonFatec from "../../components/button-fatec"
 import "../../components/Home/home.css"
+import Layout from "../../components/Layout"
 function Home() {
     return (
+        <Layout>
         <div className="home-container"> 
         <h1>Bem vindo a Página Inicial!</h1>
         <p>Este site é um projeto que visa compreender formas de criação de sites!</p>
@@ -12,6 +14,7 @@ function Home() {
         <Link to= {'/Tarefas'}><ButtonFatec type={"button"} label={"Ir para Tarefas"}></ButtonFatec></Link>
         </div>
         </div>
+        </Layout>
     )
 
 }
