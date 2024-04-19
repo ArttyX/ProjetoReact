@@ -2,7 +2,7 @@ import styles from './index.module.css'
 
 interface Props {
     defaultValue: string
-    type: 'text' | 'email' | 'number'
+    type: 'text' | 'email' | 'tel'
     placeHolder: string
 }
 
@@ -13,6 +13,7 @@ function InputFatec({defaultValue, type, placeHolder}: Props) {
         type={type} 
         placeholder={placeHolder}
         defaultValue={defaultValue}
+        style={{ color: 'red' }}
         />
     )
 }
