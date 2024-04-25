@@ -2,11 +2,10 @@ import { Link } from "react-router-dom"
 import ButtonFatec from "../../components/button-fatec";
 import "../../components/Contact/contato.css"
 import InputFatec from "../../components/input-fatec";
-import Topo from "../../components/Topo";
+import Layout from "../../components/Layout";
 function Contato(){
     return (
-      <>
-      <Topo />
+      <Layout>
       <div className="contato-container">
       <h1>Contato</h1>
       <div>
@@ -26,7 +25,7 @@ function Contato(){
       <Link to= {'/'}><ButtonFatec type={"button"} label={"Voltar"}></ButtonFatec></Link>
       </div>
     </div>
-    </>
+    </Layout>
     )
 }
 export default Contato;
