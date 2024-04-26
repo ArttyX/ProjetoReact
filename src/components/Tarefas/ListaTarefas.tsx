@@ -15,14 +15,14 @@ interface Tarefa {
         {tarefas.map((tarefa, index) => (
           <HStack key={index}>
             <Text>{tarefa.nome}</Text>
-            <Button onClick={() => onToggleStatus(index)}>
+            <Button colorScheme='red' variant='outline' onClick={() => onToggleStatus(index)}>
               {tarefa.pendente ? 'Concluir' : 'Pendente'}
             </Button>
-            <Button onClick={() => onDelete(index)}>Excluir</Button>
+            <Button  colorScheme='red' variant='outline' onClick={() => onDelete(index)}>Excluir</Button>
           </HStack>
         ))}
       </VStack>
     );
   };
   
-  export default ListaDeTarefas;
+export default ListaDeTarefas;

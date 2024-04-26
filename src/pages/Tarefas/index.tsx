@@ -39,7 +39,7 @@ function ListaTarefas () {
           onChange={(e) => setNovaTarefa(e.target.value)}
           placeholder="Nova tarefa"
         />
-        <Button onClick={handleAddTarefa}>Adicionar Tarefa</Button>
+        <Button colorScheme='red' variant='outline' onClick={handleAddTarefa}>Adicionar Tarefa</Button>
         <ListaDeTarefas
           tarefas={tarefas}
           onDelete={handleDelete}
