@@ -14,8 +14,6 @@ function ButtonFatec({type, label}: Props){
             colorScheme='red' 
             size='lg' 
             variant='outline' 
-            marginRight={5} 
-            marginTop={5}
             >
             {label}
         </Button>
