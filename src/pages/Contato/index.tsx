@@ -3,7 +3,7 @@ import ButtonFatec from "../../components/button-fatec";
 import "../../components/Contact/contato.css"
 import InputFatec from "../../components/input-fatec";
 import Layout from "../../components/Layout";
-import { Heading } from '@chakra-ui/react'
+import { Flex, Heading } from '@chakra-ui/react'
 function Contato(){
     return (
       <Layout>
@@ -19,9 +19,9 @@ function Contato(){
           <InputFatec type="tel" placeHolder="Telefone" defaultValue={''} />
         </div>
         <ButtonFatec type='button' label={"Enviar"}></ButtonFatec>
-      <div>
+      <Flex display='flex' alignContent='center' justifyContent='center' marginTop='10px'>
       <Link to= {'/'}><ButtonFatec type={"button"} label={"Voltar"}></ButtonFatec></Link>
-      </div>
+      </Flex>
     </div>
     </Layout>
     )
