@@ -2,51 +2,42 @@ import { Link } from "react-router-dom"
 import ButtonFatec from "../../components/button-fatec";
 import "../../components/Tarefas/listaTarefas.css"
 import Layout from "../../components/Layout";
-import { useState } from "react";
-import { Button, ChakraProvider, Input, VStack } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
 import ListaDeTarefas from "../../components/Tarefas/ListaTarefas";
+import FormTarefa from "../../components/Tarefas/formTarefas";
+import { Tarefa } from "../../interfaces/tarefas";
+
 function ListaTarefas () {
-    const [tarefas, setTarefas] = useState([
-        { nome: 'Tarefa 1', pendente: true },
-        { nome: 'Tarefa 2', pendente: true },
-        { nome: 'Tarefa 3', pendente: true },
-      ]);
-      const [novaTarefa, setNovaTarefa] = useState('');
-    
-      const handleDelete = (index: number) => {
-        const novasTarefas = [...tarefas];
-        novasTarefas.splice(index, 1);
-        setTarefas(novasTarefas);
-      };
-    
-      const handleToggleStatus = (index:number) => {
-        const novasTarefas = [...tarefas];
-        novasTarefas[index].pendente = !novasTarefas[index].pendente;
-        setTarefas(novasTarefas);
-      };
-      const handleAddTarefa = () => {
-        if (novaTarefa.trim() !== '') {
-          setTarefas([...tarefas, { nome: novaTarefa, pendente: true }]);
-          setNovaTarefa('');
-        }}
+  const [tarefas, setTarefas] = useState<Tarefa[]>([
+])
+function carregarLista() {
+  return[
+    {id: 1, nome: "Tarefa 1", concluida: false},
+    {id: 2, nome: "Tarefa 2", concluida: false}
+  ]
+}
+useEffect(() =>{
+  const tarefas = carregarLista()
+  setTarefas(tarefas)
+},[])
+
+function apagarTarefas (id:number){
+  const tarefasAtualizadas = tarefas.filter((tarefa)=> tarefa.id !==id)
+  setTarefas(tarefasAtualizadas)
+}
     return (
     <Layout>
       <div className="lista-tarefas-container">
-      <ChakraProvider cssVarsRoot={undefined}>
-      <VStack align="start" spacing={4}>
-        <Input
-          value={novaTarefa}
-          onChange={(e) => setNovaTarefa(e.target.value)}
-          placeholder="Nova tarefa"
-        />
-        <Button colorScheme='red' variant='outline' onClick={handleAddTarefa}>Adicionar Tarefa</Button>
-        <ListaDeTarefas
-          tarefas={tarefas}
-          onDelete={handleDelete}
-          onToggleStatus={handleToggleStatus}
-        />
-      </VStack>
-      </ChakraProvider>
+      <FormTarefa tarefas={tarefas} setTarefas={setTarefas} />
+            {
+                tarefas.map((tarefa) => (
+                    <ListaDeTarefas 
+                    key={tarefa.id}
+                    titulo={tarefa.nome} 
+                    idTarefa={tarefa.id}
+                    apagarTarefa={apagarTarefas} />
+                ))
+            }
       <div>
       <Link to= {'/'}><ButtonFatec type={"button"} label={"Voltar"}></ButtonFatec></Link>
       </div>
