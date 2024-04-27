@@ -2,11 +2,12 @@ import { Link } from "react-router-dom"
 import ButtonFatec from "../../components/button-fatec"
 import "../../components/Home/home.css"
 import Layout from "../../components/Layout"
+import { Heading } from "@chakra-ui/react"
 function Home() {
     return (
         <Layout>
         <div className="home-container"> 
-        <h1>Bem vindo a Página Inicial!</h1>
+        <Heading marginBottom={3}>Página Inicial</Heading>
         <p>Este site é um projeto que visa compreender formas de criação de sites!</p>
         <div>
         <Link to= {'/sobre'}><ButtonFatec type={"button"} label={"Ir para Sobre"}></ButtonFatec></Link>

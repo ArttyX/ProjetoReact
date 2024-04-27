@@ -1,4 +1,4 @@
-import { Box, Button, Circle, Grid } from "@chakra-ui/react"
+import { Box, Button, Grid } from "@chakra-ui/react"
   
   interface ListaDeTarefasProps {
     titulo: string

@@ -14,3 +14,11 @@
     max-width: 800px;
     width: 100%;
   }  
+  .title-container{
+    text-align:center;
+    font-size: large;
+    display: flex;
+    margin-bottom: 10px;
+    justify-content: center;
+    align-items: center;
+  }
