@@ -9,8 +9,14 @@ interface Props {
 
 function ButtonFatec({type, label}: Props){
     return (
-        
-            <Button type={type} colorScheme='red' size='lg' variant='outline' marginRight={5} marginTop={5}>
+            <Button 
+            type={type} 
+            colorScheme='red' 
+            size='lg' 
+            variant='outline' 
+            marginRight={5} 
+            marginTop={5}
+            >
             {label}
         </Button>
     )

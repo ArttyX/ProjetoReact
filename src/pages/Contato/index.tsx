@@ -10,16 +10,13 @@ function Contato(){
       <div className="contato-container">
       <Heading marginBottom={3}>Contato</Heading>
       <div className="option-container">
-          <label>Nome: </label>
-          <InputFatec type="text" placeHolder="Digite seu nome" defaultValue={''} />
+          <InputFatec type="text" placeHolder="Nome" defaultValue={''} />
         </div>
         <div className="option-container">
-          <label>E-mail: </label>
-          <InputFatec type="email" placeHolder="Digite seu e-mail" defaultValue={''} />
+          <InputFatec type="email" placeHolder="E-mail" defaultValue={''} />
         </div>
         <div className="option-container">
-          <label>Telefone: </label>
-          <InputFatec type="tel" placeHolder="Digite seu telefone" defaultValue={''} />
+          <InputFatec type="tel" placeHolder="Telefone" defaultValue={''} />
         </div>
         <ButtonFatec type='button' label={"Enviar"}></ButtonFatec>
       <div>

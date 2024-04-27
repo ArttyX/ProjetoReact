@@ -1,5 +1,5 @@
 import styles from './index.module.css'
-import { Input } from '@chakra-ui/react'
+import { Flex, Input, InputGroup, InputLeftAddon } from '@chakra-ui/react'
 interface Props{
     defaultValue: string
     type: 'text' | 'email' | 'tel'
@@ -8,13 +8,18 @@ interface Props{
 
 function InputFatec({defaultValue, type, placeHolder}: Props) {
     return (
-        <Input size='sm' width='auto' borderRadius={5}
+        <Flex alignItems="center" justifyContent="center">
+        <InputGroup>
+        <InputLeftAddon>{placeHolder}</InputLeftAddon>
+        <Input size='auto' width='auto' borderRadius={5}
         className={styles.Input}
         type={type} 
         placeholder={placeHolder}
         defaultValue={defaultValue}
-        style={{ color: 'black' }}
+        style={{ color: 'black'}}
         />
+        </InputGroup>
+        </Flex>
     )
 }
 
