@@ -1,5 +1,9 @@
 export interface Tarefa {
     id: number
-    nome: string
-    concluida: boolean
+    title: string
+    completed: boolean
+}
+export interface PostTarefa{
+    title:string
+    completed?:boolean
 }

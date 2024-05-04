@@ -6,36 +6,52 @@ import { useEffect, useState } from "react";
 import ListaDeTarefas from "../../components/Tarefas/ListaTarefas";
 import FormTarefa from "../../components/Tarefas/formTarefas";
 import { Tarefa } from "../../interfaces/tarefas";
+import api from "../../helpers/axios";
 
 function ListaTarefas () {
   const [tarefas, setTarefas] = useState<Tarefa[]>([
 ])
-function carregarLista() {
-  return[
-    {id: 1, nome: "Tarefa 1", concluida: false},
-    {id: 2, nome: "Tarefa 2", concluida: false}
-  ]
+async function carregarLista() {
+  const resposta = await api.get('/task')
+  if(resposta.status == 200) {
+    setTarefas(resposta.data)
+  }
 }
 useEffect(() =>{
-  const tarefas = carregarLista()
-  setTarefas(tarefas)
+  carregarLista()
 },[])
 
 function apagarTarefas (id:number){
-  const tarefasAtualizadas = tarefas.filter((tarefa)=> tarefa.id !==id)
-  setTarefas(tarefasAtualizadas)
+  api.delete(`/task/${id}`)
+  .then(resposta=> {
+    if(resposta.status==204){
+    carregarLista()
+    }else{
+      alert('Erro ao Remover!')
+    }
+  })
+  .catch(erro => {
+    console.log(erro)
+  })
+}
+function alterarStatus(tarefa:Tarefa){
+  tarefa.completed = !tarefa.completed
+  api.put(`/task/${tarefa.id}`,tarefa)
+  .then(() => {
+    carregarLista()
+  })
 }
     return (
     <Layout>
       <div className="lista-tarefas-container">
-      <FormTarefa tarefas={tarefas} setTarefas={setTarefas} />
+      <FormTarefa carregarLista={carregarLista} />
             {
                 tarefas.map((tarefa) => (
                     <ListaDeTarefas 
                     key={tarefa.id}
-                    titulo={tarefa.nome} 
-                    idTarefa={tarefa.id}
-                    apagarTarefa={apagarTarefas} />
+                    tarefa={tarefa}
+                    apagarTarefa={apagarTarefas}
+                    alterarStatus={alterarStatus} />
                 ))
             }
       <div>

@@ -1,22 +1,23 @@
 import { Box, Button, Grid } from "@chakra-ui/react"
+import { Tarefa } from "../../interfaces/tarefas"
   
   interface ListaDeTarefasProps {
-    titulo: string
-    idTarefa: number
+    tarefa:Tarefa
     apagarTarefa (id: number): void
+    alterarStatus(tarefa:Tarefa):void
   }
-  function ListaDeTarefas({titulo,idTarefa,apagarTarefa}:ListaDeTarefasProps){
+  function ListaDeTarefas({tarefa,apagarTarefa,alterarStatus}:ListaDeTarefasProps){
     return (    
         <Grid templateColumns='3fr 1fr' 
         p={2} backgroundColor='#f0f0f0' my={3}
         border='1px solid red' borderRadius='10px' 
         textAlign={"left"} borderStyle='groove' alignItems='center'>
             <Box>
-                {idTarefa} - {titulo}
+                {tarefa.id} - {tarefa.title}
             </Box>
             <Box>
-                <Button colorScheme='green' variant='outline' marginRight={2} height='40px'>Concluir</Button>
-                <Button onClick={() => apagarTarefa(idTarefa)} colorScheme="red" variant='outline' marginRight={2} height='40px'>Remover</Button>
+                <Button onClick={() => alterarStatus(tarefa)} colorScheme={tarefa.completed ? 'green' : 'purple'} variant='outline' marginRight={2} height='40px'>{tarefa.completed ? 'Finalizada' : 'Pendente'}</Button>
+                <Button onClick={() => apagarTarefa(tarefa.id)} colorScheme="red" variant='outline' marginRight={2} height='40px'>Remover</Button>
             </Box>
         </Grid>
     )
